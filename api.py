@@ -66,6 +66,8 @@ def analyze_news():
                 sentiment = "NEUTRAL"
                 # neutral_sentiment_count += 1
 
+            sentiment_count[sentiment] += 1
+
             all_articles.append({
                 "Title": article.get("title"),
                 "Summary": article.get("description"),
