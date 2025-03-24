@@ -1,6 +1,5 @@
 from transformers import pipeline
 from gtts import gTTS
-import asyncio
 from googletrans import Translator
 
 # Loading models
