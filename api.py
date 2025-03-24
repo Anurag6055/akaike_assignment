@@ -158,8 +158,10 @@ def analyze_news():
 
             all_articles.append(article)
 
-        output["Comparitive Sentiment Score"]["Sentiment Distribution"] = sentiment_count
-
+        output["Comparitive Sentiment Score"] = {
+            "Sentiment Distribution": sentiment_count
+        }
+        
         if overall_sentiment_count>0:
             output["Final Sentiment Analysis"] = f"{company.capitalize()}'s lastest news is mostly positive. Potential stock growth expected."
         elif overall_sentiment_count<0:
