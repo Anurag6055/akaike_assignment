@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
-# import nest_asyncio
+import nest_asyncio
+
+nest_asyncio.apply()
 
 st.title("Company News Sentiment Analyzer")
 
@@ -19,19 +21,29 @@ if st.button("Fetch News & Analyze"):
 
             if response.status_code == 200:
                 data = response.json()
-            # data = analyze_news(company = company, source = source)
-            # nest_asyncio.apply()
-            # if data:
+                st.subheader(f"Sentiment Analysis for {data['Company']}")
 
-                # st.subheader(f"Sentiment Distribution for {company}")
-                # st.json(data["sentiment_distribution"])
+                # Comparative Sentiment Score
+                st.write("### Comparative Sentiment Score")
+                sentiment_dist = data.get("Comparitive Sentiment Score", {})
+                st.json(sentiment_dist)
 
-                st.subheader("Articles:")
-                for idx, article in enumerate(data["articles"]):
-                    st.write(f"**{idx+1}. Title:** {article['title']}")
-                    st.write(f"**Sentiment:** {article['sentiment']}")
-                    st.write(f"**Summary:** {article['summary']}")
-                    st.write(f"[Read Full Article]({article['url']})")
+                # Final Sentiment Analysis
+                st.write("### Final Sentiment Analysis")
+                st.success(data.get("Final Sentiment Analysis", "No analysis available"))
+
+                # Audio Player for Hindi TTS
+                if "Audio" in data:
+                    st.write("### Listen to Hindi Summary")
+                    audio_bytes = base64.b64decode(data["Audio"])
+                    st.audio(audio_bytes, format="audio/mp3")
+
+                # Articles Display
+                st.write("### Articles:")
+                for idx, article in enumerate(data["Articles"]):
+                    st.write(f"**{idx+1}. Title:** {article['Title']}")
+                    st.write(f"**Sentiment:** {article['Sentiment']}")
+                    st.write(f"**Summary:** {article['Summary']}")
                     st.markdown("---")
             else:
                 st.error("Failed to fetch data from API.")
