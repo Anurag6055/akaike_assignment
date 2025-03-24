@@ -10,3 +10,4 @@ textblob
 requests
 lxml_html_clean
 googletrans==4.0.0-rc1
+nest_asyncio
