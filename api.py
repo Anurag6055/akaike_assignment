@@ -169,8 +169,8 @@ def analyze_news():
         else:
             output["Final Sentiment Analysis"] = f"{company.capitalize()}'s lastest news is mostly neutral. Stocks going to stay stagnant for some time."
         
-        df = pd.DataFrame(all_articles)
-        text_to_summarize = " ".join([d['Title'] + " " + d['summary'] for d in article[:5]])
+        # df = pd.DataFrame(all_articles)
+        text_to_summarize = " ".join([d['Title'] + " " + d['summary'] for d in all_articles[:5]])
         summary_final = summarize_text(text_to_summarize)
 
         audio_path = generate_hindi_tts(summary_final)
