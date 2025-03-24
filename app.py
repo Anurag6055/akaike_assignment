@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-from api import analyze_news
 # import nest_asyncio
 
 st.title("Company News Sentiment Analyzer")
