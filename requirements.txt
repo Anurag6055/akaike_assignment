@@ -1,0 +1,11 @@
+flask
+streamlit
+beautifulsoup4
+torch
+transformers
+gtts
+newspaper3k
+pandas
+textblob
+requests
+lxml_html_clean
