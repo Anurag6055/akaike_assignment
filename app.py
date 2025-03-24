@@ -24,8 +24,8 @@ if st.button("Fetch News & Analyze"):
             # nest_asyncio.apply()
             # if data:
 
-                st.subheader(f"Sentiment Distribution for {company}")
-                st.json(data["sentiment_distribution"])
+                # st.subheader(f"Sentiment Distribution for {company}")
+                # st.json(data["sentiment_distribution"])
 
                 st.subheader("Articles:")
                 for idx, article in enumerate(data["articles"]):
